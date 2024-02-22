@@ -403,6 +403,7 @@ provideStrings({
     'cannot find the account you are looking for.',
   braveWalletLedgerLiveDerivationPath: 'Ledger Live',
   braveWalletLedgerLegacyDerivationPath: 'Legacy (MEW/MyCrypto)',
+  braveWalletLedgerBip44RootDerivationPath: 'Bip44 Root',
   braveWalletUnknownInternalError:
     'Unknown error, please reconnect your hardware wallet and try again.',
   braveWalletConnectHardwareSearchNothingFound: 'No results found.',
