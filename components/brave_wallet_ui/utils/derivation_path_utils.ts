@@ -25,7 +25,9 @@ export const getPathForEthLedgerIndex = (
   if (scheme === LedgerDerivationPaths.Deprecated) {
     return `m/44'/60'/${index ?? 'x'}'/0`
   }
-
+  if (scheme === LedgerDerivationPaths.Bip44Root) {
+    return `m/44'/60'/0'/0/${index ?? 'x'}`
+  }
   assert(scheme === LedgerDerivationPaths.Legacy, '')
   return `m/44'/60'/0'/${index ?? 'x'}`
 }
