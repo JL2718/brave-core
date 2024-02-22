@@ -38,7 +38,8 @@ export type SignHardwareOperationResult = HardwareOperationResult & {
 export enum LedgerDerivationPaths {
   LedgerLive = 'ledger-live',
   Legacy = 'legacy',
-  Deprecated = 'deprecated'
+  Deprecated = 'deprecated',
+  Bip44Root = 'bip-44-root'
 }
 
 export enum TrezorDerivationPaths {
@@ -55,6 +56,7 @@ const DerivationSchemeTypes = [
   LedgerDerivationPaths.LedgerLive,
   LedgerDerivationPaths.Legacy,
   LedgerDerivationPaths.Deprecated,
+  LedgerDerivationPaths.Bip44Root,
   TrezorDerivationPaths.Default,
   SolDerivationPaths.Default,
   SolDerivationPaths.LedgerLive,
