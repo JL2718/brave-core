@@ -17,6 +17,7 @@ export { SolDerivationPaths } from '../../../../../common/hardware/types'
 export const HardwareWalletDerivationPathLocaleMapping = {
   [LedgerDerivationPaths.LedgerLive]: 'Ledger Live',
   [LedgerDerivationPaths.Legacy]: 'Legacy (MEW/MyCrypto)',
+  [LedgerDerivationPaths.Bip44Root]: 'Bip44 Root',
   [LedgerDerivationPaths.Deprecated]: 'Deprecated (Not recommended)',
   [TrezorDerivationPaths.Default]: 'Default'
 } as const
