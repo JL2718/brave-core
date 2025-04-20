@@ -608,6 +608,8 @@ inline constexpr webui::LocalizedString kLocalizedStrings[] = {
      IDS_BRAVE_WALLET_LEDGER_LIVE_DERIVATION_PATH},
     {"braveWalletLedgerLegacyDerivationPath",
      IDS_BRAVE_WALLET_LEDGER_LEGACY_DERIVATION_PATH},
+    {"braveWalletLedgerBip44RootDerivationPath",
+     IDS_BRAVE_WALLET_LEDGER_BIP44ROOT_DERIVATION_PATH},
     {"braveWalletConnectHardwareSearchNothingFound",
      IDS_BRAVE_WALLET_CONNECT_HARDWARE_SEARCH_NOTHING_FOUND},
     {"braveWalletAuthorizeHardwareWallet",
@@ -1759,19 +1761,19 @@ inline constexpr char kMeldRpcEndpoint[] = "https://api-meld.wallet.brave.com";
 inline constexpr char kMeldRpcVersionHeader[] = "Meld-Version";
 inline constexpr char kMeldRpcVersion[] = "2023-05-26";
 
-const std::string GetSardineNetworkName(const std::string& chain_id);
-const base::flat_map<std::string, std::string>&
+const std::string GetSardineNetworkName(const std::string &chain_id);
+const base::flat_map<std::string, std::string> &
 GetEthBalanceScannerContractAddresses();
-const std::vector<std::string>& GetEthSupportedNftInterfaces();
+const std::vector<std::string> &GetEthSupportedNftInterfaces();
 // Returns the URL for the Ratios service.
 const std::string GetAssetRatioBaseURL();
-const base::flat_map<std::string, std::string>& GetAnkrBlockchains();
+const base::flat_map<std::string, std::string> &GetAnkrBlockchains();
 // https://docs.rs/solana-program/1.18.10/src/solana_program/clock.rs.html#129-131
 inline constexpr int kSolanaValidBlockHeightThreshold = 150;
 
-std::optional<std::string> GetZeroExAllowanceHolderAddress(
-    const std::string& chain_id);
+std::optional<std::string>
+GetZeroExAllowanceHolderAddress(const std::string &chain_id);
 
-}  // namespace brave_wallet
+} // namespace brave_wallet
 
-#endif  // BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_BRAVE_WALLET_CONSTANTS_H_
+#endif // BRAVE_COMPONENTS_BRAVE_WALLET_BROWSER_BRAVE_WALLET_CONSTANTS_H_

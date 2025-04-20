@@ -17,7 +17,8 @@ import {
   DerivationScheme,
   EthLedgerDeprecatedHardwareImportScheme,
   EthLedgerLegacyHardwareImportScheme,
-  EthLedgerLiveHardwareImportScheme
+  EthLedgerLiveHardwareImportScheme,
+  EthledgerDefaultHardwareImportScheme
 } from '../../../common/hardware/types'
 
 export const HardwareAccountsList = {
@@ -36,7 +37,8 @@ export const HardwareAccountsList = {
         supportedSchemes={[
           EthLedgerLiveHardwareImportScheme,
           EthLedgerLegacyHardwareImportScheme,
-          EthLedgerDeprecatedHardwareImportScheme
+          EthLedgerDeprecatedHardwareImportScheme,
+          EthledgerDefaultHardwareImportScheme
         ]}
         setHardwareImportScheme={function (scheme: DerivationScheme): void {}}
         onAddAccounts={function (): void {}}

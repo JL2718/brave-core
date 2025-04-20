@@ -10,6 +10,7 @@ import {
   EthLedgerDeprecatedHardwareImportScheme,
   EthLedgerLegacyHardwareImportScheme,
   EthLedgerLiveHardwareImportScheme,
+  EthLedgerDefaultHardwareImportScheme,
   HardwareOperationResultAccounts,
   HardwareOperationError
 } from '../types'
@@ -214,6 +215,54 @@ test('getAccounts deprecated derivation path success', async () => {
       {
         address: 'address 2',
         derivationPath: "m/44'/60'/1'/0"
+      }
+    ]
+  })
+})
+
+test('getAccounts default derivation path success', async () => {
+  const { keyring, transport } = createKeyring()
+
+  transport.addSendCommandResponse(unlockSuccessResponse)
+
+  const getAccountsResponse1: EthGetAccountResponse = {
+    id: LedgerCommand.GetAccount,
+    origin: window.origin,
+    command: LedgerCommand.GetAccount,
+    payload: {
+      success: true,
+      publicKey: 'publicKey',
+      address: 'address'
+    }
+  }
+  transport.addSendCommandResponse(getAccountsResponse1)
+  const getAccountsResponse2: EthGetAccountResponse = {
+    id: LedgerCommand.GetAccount,
+    origin: window.origin,
+    command: LedgerCommand.GetAccount,
+    payload: {
+      success: true,
+      publicKey: 'publicKey 2',
+      address: 'address 2'
+    }
+  }
+  transport.addSendCommandResponse(getAccountsResponse2)
+
+  const result = await keyring.getAccounts(
+    0,
+    2,
+    EthLedgerDeprecatedHardwareImportScheme
+  )
+  expect(result).toEqual({
+    success: true,
+    accounts: [
+      {
+        address: 'address',
+        derivationPath: "m/44'/60'/0'/0/0"
+      },
+      {
+        address: 'address 2',
+        derivationPath: "m/44'/60'/0'/0/1"
       }
     ]
   })

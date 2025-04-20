@@ -21,6 +21,7 @@ export const DerivationSchemes = {
   EthLedgerLive: 'EthLedgerLive',
   EthLedgerLegacy: 'EthLedgerLegacy',
   EthLedgerDeprecated: 'EthLedgerDeprecated',
+  EthLedgerBip44Root: 'EthLedgerDefault'
   SolLedgerDefault: 'SolLedgerDefault',
   SolLedgerLedgerLive: 'SolLedgerLedgerLive',
   SolLedgerBip44Root: 'SolLedgerBip44Root',
@@ -77,6 +78,15 @@ export const EthLedgerDeprecatedHardwareImportScheme: HardwareImportScheme = {
   vendor: BraveWallet.HardwareVendor.kLedger,
   name: 'Deprecated (Not recommended)',
   pathTemplate: (index) => `m/44'/60'/${index}'/0`
+}
+
+export const EthLedgerDefaultHardwareImportScheme: HardwareImportScheme = {
+  derivationScheme: DerivationSchemes.EthLedgerBip44Root,
+  coin: BraveWallet.CoinType.ETH,
+  keyringId: BraveWallet.KeyringId.kDefault,
+  vendor: BraveWallet.HardwareVendor.kLedger,
+  name: 'Default (Metamask/Coinbase/Trezor)',
+  pathTemplate: (index) => `m/44'/60'/0'/0/${index}'`
 }
 
 export const SolLedgerDefaultHardwareImportScheme: HardwareImportScheme = {
@@ -160,6 +170,7 @@ export const AllHardwareImportSchemes: HardwareImportScheme[] = [
   EthLedgerLiveHardwareImportScheme,
   EthLedgerLegacyHardwareImportScheme,
   EthLedgerDeprecatedHardwareImportScheme,
+  EthLedgerDefaultHardwareImportScheme,
 
   SolLedgerDefaultHardwareImportScheme,
   SolLedgerLiveHardwareImportScheme,
